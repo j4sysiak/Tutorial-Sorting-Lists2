@@ -25,10 +25,10 @@ public class Test {
     }
      
     private static void addElements(Collection<Person> col) {
-        col.add(new Person("Joe"));
-        col.add(new Person("Sue"));
+        col.add(new Person("Joewwwwwwwwwwwww"));
+        col.add(new Person("Sueww"));
         col.add(new Person("Juliet"));
-        col.add(new Person("Clare"));
+        col.add(new Person("Clarewwww"));
         col.add(new Person("Mike"));
     }
      
