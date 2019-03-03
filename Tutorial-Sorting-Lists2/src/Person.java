@@ -1,27 +1,13 @@
-import java.util.Comparator;
+ 
+public class Person  implements Comparable<Person>{
 
-
-public class Person /*implements Comparable<Person>*/ {
-
-	private int id;
 	private String name;
 	
-	
-	public Person(int id, String name) {
-		this.id = id;
-		this.name = name;
-	}
 	
 	public Person(String name) {
 		this.name = name;
 	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	 
 	public String getName() {
 		return name;
 	}
@@ -29,15 +15,54 @@ public class Person /*implements Comparable<Person>*/ {
 		this.name = name;
 	}
 
+ 
+
+    @Override
+    public int compareTo(Person person) {
+        int len1 = name.length();
+        int len2 = person.name.length();
+         
+        if(len1 > len2) {
+            return 1;
+        }
+        else if(len1 < len2) {
+            return -1;
+        }
+        else {
+            return name.compareTo(person.name);
+        }
+    }
+
 	@Override
-	public String toString() {
-		return "Person [id=" + id + ", name=" + name + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Person [name=" + name + "]";
-//	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + "]";
+	}
+ 
     
  
 }
